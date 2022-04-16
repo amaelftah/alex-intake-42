@@ -29,4 +29,9 @@ class PostController extends Controller
     {
         return 'we are in store';
     }
+
+    public function show($postId)
+    {
+        return $postId;
+    }
 }
