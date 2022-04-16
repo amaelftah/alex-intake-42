@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class TestController extends Controller
+class PostController extends Controller
 {
-    public function testAction()
+    public function index()
     {
         $allNames = ['ahmed', 'mohamed', 'ali'];
 
-        return view('test',[
+        return view('posts.index',[
             'names' => $allNames,
         ]);
     }
