@@ -14,4 +14,9 @@ class PostController extends Controller
             'names' => $allNames,
         ]);
     }
+
+    public function create()
+    {
+        return view('posts.create');
+    }
 }
