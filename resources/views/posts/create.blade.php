@@ -21,27 +21,28 @@
         </div>
       </nav>
     <div class="container">
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Title</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
-          </div>
-          <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-          </div>
+        <form method="POST" action="/posts">
+            @csrf
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Title</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
 
-          <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Post Creator</label>
-            <select class="form-control">
-                <option value="1">Ahmed</option>
-                <option value="2">Mohamed</option>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Post Creator</label>
+                <select class="form-control">
+                    <option value="1">Ahmed</option>
+                    <option value="2">Mohamed</option>
 
-            </select>
-          </div>
-        
+                </select>
+            </div>
 
           <button class="btn btn-success">Create</button>
-
+        </form>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
