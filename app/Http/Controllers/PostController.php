@@ -8,6 +8,8 @@ class PostController extends Controller
 {
     public function index()
     {
+        //create database & table
+        //query on database table
         $posts = [
             ['id' => 1, 'title' => 'Laravel', 'post_creator' => 'Ahmed', 'created_at' => '2022-04-16 10:37:00'],
             ['id' => 2, 'title' => 'PHP', 'post_creator' => 'Mohamed', 'created_at' => '2022-04-16 10:37:00'],
