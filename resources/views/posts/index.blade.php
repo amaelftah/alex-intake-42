@@ -21,7 +21,12 @@
               <tr>
                 <td>{{ $post->id }}</th>
                 <td>{{ $post->title }}</td>
-                <td>{{ $post->post_creator }}</td>
+                @if($post->user)
+                  <td>{{$post->user->name}}</td>
+                @else
+                  <td>Not Found</td>
+                @endif
+                {{-- <td>{{$post->user ? $post->user->name : 'Not Found'}}</td> --}}
                 <td>{{ $post->created_at }}</td>
                 <td>
                     <a href="{{ route('posts.show', ['post' => $post->id]) }}" class="btn btn-info">View</a>
