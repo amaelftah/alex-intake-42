@@ -40,6 +40,7 @@ class PostController extends Controller
         Post::create([
             'title' => $data['title'],
             'description' => $data['description'],
+            'user_id' => $data['post_creator'],
             // 'test' => 'some value',
             // 'test2' => 'another value',
             // 'id' => 300,
