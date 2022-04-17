@@ -3,18 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
+use App\Models\User;
 
 class PostController extends Controller
 {
     public function index()
     {
-        $posts = [
-            ['id' => 1, 'title' => 'Laravel', 'post_creator' => 'Ahmed', 'created_at' => '2022-04-16 10:37:00'],
-            ['id' => 2, 'title' => 'PHP', 'post_creator' => 'Mohamed', 'created_at' => '2022-04-16 10:37:00'],
-            ['id' => 3, 'title' => 'Javascript', 'post_creator' => 'Ali', 'created_at' => '2022-04-16 10:37:00'],
-        ];
-        
-        // dd($posts); for debugging
+        //select * from posts where title = 'CSS';
+        // $filteredPosts = Post::where('title', 'CSS')->get();
+        // dd($filteredPosts);
+
+        $posts = Post::all(); //select * from posts;
+
+        // dd($posts);
         return view('posts.index',[
             'posts' => $posts,
         ]);
@@ -22,16 +24,38 @@ class PostController extends Controller
 
     public function create()
     {
-        return view('posts.create');
+        $users = User::all();
+
+        return view('posts.create',[
+            'users' => $users,
+        ]);
     }
 
     public function store()
     {
-        return 'we are in store';
+        //get the request data
+        $data = request()->all(); //== $_POST
+
+        //store the request data into the db
+        Post::create([
+            'title' => $data['title'],
+            'description' => $data['description'],
+            'user_id' => $data['post_creator'],
+            // 'test' => 'some value',
+            // 'test2' => 'another value',
+            // 'id' => 300,
+        ]);
+
+        //redirection to /posts
+        return to_route('posts.index');
     }
 
     public function show($postId)
     {
+        // SELECT * from posts where id = 'postId';
+        // $post = Post::where('id', $postId)->first();
+        $post = Post::find($postId);
+        dd($post);
         return $postId;
     }
 }
